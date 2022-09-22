@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for author in all_authors %}
+
+    <div class="authors">
+        <div class="content">
+            <a href="/authors/{{author.id}}">{{author.first_name}} {{author.last_name}}</a>
+            <div class="author">
+                {{author.first_name}} {{author.last_name}}
+            </div>
+            <div>
+                <form class="delete-form" action="/authors/{{author.id}}/delete" method="POST"> <!-- NEW -->
+                    <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button> <!-- NEW -->
+                </form> 
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
